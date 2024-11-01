@@ -13,7 +13,7 @@ class SherketyApp extends StatelessWidget {
       title: 'Sherkety app',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
       home: Scaffold(
