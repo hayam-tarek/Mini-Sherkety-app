@@ -1,4 +1,9 @@
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:sherkety_flutter_app/core/constants/asset_colors.dart';
+import 'package:sherkety_flutter_app/core/constants/asset_fonts.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/register_view.dart';
 
 void main() {
   runApp(const SherketyApp());
@@ -10,20 +15,31 @@ class SherketyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Sherkety app',
+      title: 'Sherkety App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        scaffoldBackgroundColor: Colors.white,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AssetColors.primaryColor,
+          secondary: AssetColors.secondaryColor,
+        ),
         useMaterial3: true,
+        fontFamily: AssetFonts.primaryFont,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Sherkety app'),
-        ),
-        body: const Center(
-          child: Text('Welcome to Sherkety app❤'),
-        ),
-      ),
+      locale: const Locale('ar'),
+      supportedLocales: const [
+        Locale('ar'),
+      ],
+      localizationsDelegates: const [
+        CountryLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      home: const RegisterView(),
     );
   }
 }
+// nx run sherkety_flutter_app:serve
+// cd apps/sherkety_flutter_app
+// flutter attach -d emulator-5554
