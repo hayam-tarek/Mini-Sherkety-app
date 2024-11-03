@@ -19,9 +19,9 @@ class SherketyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
+        primaryColor: AssetColors.brandDefault,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: AssetColors.bgAccentDefault,
-          secondary: AssetColors.brandDefault,
+          seedColor: AssetColors.brandDefault,
         ),
         useMaterial3: true,
         fontFamily: AssetFonts.primaryFont,

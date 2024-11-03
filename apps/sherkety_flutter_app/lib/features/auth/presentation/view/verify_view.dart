@@ -2,21 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
 import 'package:sherkety_flutter_app/core/shared/widgets/base_spacing.dart';
 import 'package:sherkety_flutter_app/core/shared/widgets/default_button.dart';
-import 'package:sherkety_flutter_app/core/shared/widgets/small_button.dart';
 import 'package:sherkety_flutter_app/core/shared/widgets/small_space.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/change_number_button.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/code_input.dart';
 
-class VerifyView extends StatelessWidget {
-  VerifyView({
+class VerifyView extends StatefulWidget {
+  const VerifyView({
     super.key,
     required this.phoneNumber,
   });
   final String phoneNumber;
+
+  @override
+  State<VerifyView> createState() => _VerifyViewState();
+}
+
+class _VerifyViewState extends State<VerifyView> {
   final List<TextEditingController> controllers = List.generate(
     4,
     (index) => TextEditingController(),
   );
+
+  String getCode() {
+    return controllers.map((controller) => controller.text).join();
+  }
+
+  String? fullCode;
 
   @override
   Widget build(BuildContext context) {
@@ -46,13 +58,10 @@ class VerifyView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'إلى $phoneNumber ',
+                    'إلى ${widget.phoneNumber} ',
                     style: Styles.paragraph100Light,
                   ),
-                  SmallButton(
-                    text: 'تعديل الرقم',
-                    onPressed: () {},
-                  ),
+                  ChangeNumberButton(),
                 ],
               ),
               const BaseSpacing(),
@@ -76,7 +85,18 @@ class VerifyView extends StatelessWidget {
               ),
               DefaultButton(
                 text: 'أكد الرمز',
-                onPressed: () {},
+                onPressed: () {
+                  fullCode = getCode();
+                  if (fullCode != null) {
+                    if (fullCode!.length != 4) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('الرمز يجب أن يكون 4 أرقام'),
+                        ),
+                      );
+                    }
+                  }
+                },
               ),
             ],
           ),
