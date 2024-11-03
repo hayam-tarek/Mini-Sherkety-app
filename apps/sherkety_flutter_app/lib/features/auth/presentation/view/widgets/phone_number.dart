@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:sherkety_flutter_app/core/helper/phone_number.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/register_view.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/danger_container.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/phone_code_picker.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/phone_number_text_form_field.dart';
 
 class PhoneNumber extends StatefulWidget {
   const PhoneNumber({
     super.key,
+    required this.controller,
   });
+  final TextEditingController controller;
 
   @override
   State<PhoneNumber> createState() => _PhoneNumberState();
@@ -15,7 +17,7 @@ class PhoneNumber extends StatefulWidget {
 
 class _PhoneNumberState extends State<PhoneNumber> {
   String selectedCode = '+20';
-  TextEditingController controller = TextEditingController();
+
   String? validationMessage;
 
   @override
@@ -26,11 +28,11 @@ class _PhoneNumberState extends State<PhoneNumber> {
           children: [
             Expanded(
               child: PhoneNumberTextFormField(
-                controller: controller,
+                controller: widget.controller,
                 onChanged: (value) {
                   setState(() {
                     validationMessage = PhoneNumberHelper.validatePhoneNumber(
-                      phoneNumber: controller.text,
+                      phoneNumber: widget.controller.text,
                       selectedCode: selectedCode,
                     );
                   });

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 abstract class AssetColors {
-  static const Color primaryColor = Color(0xff004EDE);
+  static const Color bgAccentDefault = Color(0xff004EDE);
 
-  static const Color secondaryColor = Color(0xff003D79);
+  static const Color brandDefault = Color(0xff003D79);
 
-  static const Color tertiaryColor = Color(0xFF17E599);
+  static const Color bgSuccessDefault = Color(0xFF17E599);
 
   static const Color paragraphColor = Color(0xFF414346);
 

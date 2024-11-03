@@ -20,8 +20,8 @@ class SherketyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: AssetColors.primaryColor,
-          secondary: AssetColors.secondaryColor,
+          seedColor: AssetColors.bgAccentDefault,
+          secondary: AssetColors.brandDefault,
         ),
         useMaterial3: true,
         fontFamily: AssetFonts.primaryFont,
@@ -36,7 +36,7 @@ class SherketyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      home: const RegisterView(),
+      home: RegisterView(),
     );
   }
 }
