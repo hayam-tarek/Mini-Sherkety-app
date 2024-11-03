@@ -6,6 +6,7 @@ import 'package:sherkety_flutter_app/core/shared/widgets/small_space.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/change_number_button.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/code_input.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/resend_code_button.dart';
 
 class VerifyView extends StatefulWidget {
   const VerifyView({
@@ -42,7 +43,10 @@ class _VerifyViewState extends State<VerifyView> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const BackButton(),
+              const Align(
+                alignment: Alignment.centerRight,
+                child: BackButton(),
+              ),
               const BaseSpacing(),
               Text(
                 'أدخل الرمز',
@@ -69,14 +73,10 @@ class _VerifyViewState extends State<VerifyView> {
                 controllers: controllers,
               ),
               const BaseSpacing(),
-              SizedBox(
+              const SizedBox(
                 width: 135,
                 height: 32,
-                child: DefaultButton(
-                  fontSize: 14,
-                  text: 'إعادة ارسال الرمز',
-                  onPressed: () {},
-                ),
+                child: ResendCodeButton(),
               ),
               const Expanded(
                 child: SizedBox(
