@@ -43,3 +43,4 @@ class SherketyApp extends StatelessWidget {
 // nx run sherkety_flutter_app:serve
 // cd apps/sherkety_flutter_app
 // flutter attach -d emulator-5554
+//
