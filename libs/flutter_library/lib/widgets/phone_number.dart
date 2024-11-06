@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_library/helper/phone_number.dart';
+import 'package:flutter_library/widgets/custom_text_input.dart';
 import 'package:flutter_library/widgets/danger_container.dart';
 import 'package:flutter_library/widgets/phone_code_picker.dart';
-import 'package:flutter_library/widgets/phone_number_text_form_field.dart';
 
 class PhoneNumber extends StatefulWidget {
   const PhoneNumber({
@@ -27,8 +27,10 @@ class _PhoneNumberState extends State<PhoneNumber> {
         Row(
           children: [
             Expanded(
-              child: PhoneNumberTextFormField(
+              child: CustomTextInput(
                 controller: widget.controller,
+                hintText: 'رقم الهاتف ...',
+                keyboardType: TextInputType.phone,
                 onChanged: (value) {
                   setState(() {
                     validationMessage = PhoneNumberHelper.validatePhoneNumber(

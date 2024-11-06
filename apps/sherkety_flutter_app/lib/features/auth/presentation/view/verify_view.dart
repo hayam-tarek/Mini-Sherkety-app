@@ -4,7 +4,7 @@ import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
 import 'package:sherkety_flutter_app/core/shared/widgets/base_spacing.dart';
 import 'package:sherkety_flutter_app/core/shared/widgets/small_space.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/back_button.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/create_password_view.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/change_number_button.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/resend_code_button.dart';
 
@@ -31,6 +31,8 @@ class _VerifyViewState extends State<VerifyView> {
 
   String? fullCode;
 
+  bool correctCode = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,10 +45,7 @@ class _VerifyViewState extends State<VerifyView> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Align(
-                alignment: Alignment.centerRight,
-                child: CustomBackButton(),
-              ),
+              const DefaultAppBar(),
               const BaseSpacing(),
               Text(
                 'أدخل الرمز',
@@ -72,6 +71,11 @@ class _VerifyViewState extends State<VerifyView> {
               CodeInput(
                 controllers: controllers,
               ),
+              const SmallSpace(),
+              if (!correctCode)
+                const DangerContainer(
+                  text: 'رمز التعريف غير صحيح.',
+                ),
               const BaseSpacing(),
               const SizedBox(
                 width: 135,
@@ -89,11 +93,16 @@ class _VerifyViewState extends State<VerifyView> {
                   fullCode = getCode();
                   if (fullCode != null) {
                     if (fullCode!.length != 4) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('الرمز يجب أن يكون 4 أرقام'),
-                        ),
-                      );
+                      setState(() {
+                        correctCode = false;
+                      });
+                    } else {
+                      correctCode = true;
+                      Navigator.pushReplacement(context, MaterialPageRoute(
+                        builder: (context) {
+                          return const CreatePasswordView();
+                        },
+                      ));
                     }
                   }
                 },
