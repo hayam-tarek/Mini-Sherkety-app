@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_library/ui_lib.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
 import 'package:sherkety_flutter_app/core/shared/widgets/base_spacing.dart';
-import 'package:sherkety_flutter_app/core/shared/widgets/default_button.dart';
 import 'package:sherkety_flutter_app/core/shared/widgets/small_space.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/change_number_button.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/code_input.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/resend_code_button.dart';
 
 class VerifyView extends StatefulWidget {

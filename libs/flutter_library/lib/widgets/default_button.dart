@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sherkety_flutter_app/core/constants/asset_colors.dart';
-import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
+import 'package:flutter_library/constants/app_color.dart';
+import 'package:flutter_library/constants/app_spacing.dart';
 
 class DefaultButton extends StatelessWidget {
   const DefaultButton({
@@ -20,9 +20,9 @@ class DefaultButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.all(0),
         fixedSize: const Size(361, 48),
-        backgroundColor: AssetColors.bgAccentDefault,
+        backgroundColor: AppColor.bgAccentDefault,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AssetSpacing.borderRadius),
+          borderRadius: BorderRadius.circular(AppSpacing.borderRadius),
         ),
       ),
       child: Text(

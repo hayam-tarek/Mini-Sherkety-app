@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_library/ui_lib.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
 import 'package:sherkety_flutter_app/core/shared/widgets/base_spacing.dart';
-import 'package:sherkety_flutter_app/core/shared/widgets/default_button.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/verify_view.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/contacts.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/have_an_account.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/phone_number.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/terms_of_service_privacy_policy.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/text_register_with.dart';
 

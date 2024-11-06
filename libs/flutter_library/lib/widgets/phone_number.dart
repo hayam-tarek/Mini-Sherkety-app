@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sherkety_flutter_app/core/helper/phone_number.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/danger_container.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/phone_code_picker.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/phone_number_text_form_field.dart';
+import 'package:flutter_library/helper/phone_number.dart';
+import 'package:flutter_library/widgets/danger_container.dart';
+import 'package:flutter_library/widgets/phone_code_picker.dart';
+import 'package:flutter_library/widgets/phone_number_text_form_field.dart';
 
 class PhoneNumber extends StatefulWidget {
   const PhoneNumber({
