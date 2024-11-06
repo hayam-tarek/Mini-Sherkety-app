@@ -11,6 +11,7 @@ class TermsOfServicePrivacyPolicy extends StatelessWidget {
     return Center(
       child: Wrap(
         runAlignment: WrapAlignment.center,
+        alignment: WrapAlignment.center,
         children: [
           Text(
             'لقد قراءت وفهمت',

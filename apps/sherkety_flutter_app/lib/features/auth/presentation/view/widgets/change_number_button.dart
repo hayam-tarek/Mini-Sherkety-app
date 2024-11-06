@@ -30,7 +30,13 @@ class ChangeNumberButton extends StatelessWidget {
                     Expanded(
                       child: DefaultButton(
                         text: 'تغيير رقم الهاتف',
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                          CustomToast.show(
+                            context,
+                            'تم تغيير الرقم وإرسال رمز تفعيل جديد',
+                          );
+                        },
                       ),
                     ),
                     const SizedBox(

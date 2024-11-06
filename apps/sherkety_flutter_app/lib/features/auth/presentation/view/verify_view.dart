@@ -4,6 +4,7 @@ import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
 import 'package:sherkety_flutter_app/core/shared/widgets/base_spacing.dart';
 import 'package:sherkety_flutter_app/core/shared/widgets/small_space.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/back_button.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/change_number_button.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/resend_code_button.dart';
 
@@ -44,7 +45,7 @@ class _VerifyViewState extends State<VerifyView> {
             children: [
               const Align(
                 alignment: Alignment.centerRight,
-                child: BackButton(),
+                child: CustomBackButton(),
               ),
               const BaseSpacing(),
               Text(
