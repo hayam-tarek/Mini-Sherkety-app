@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_colors.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_fonts.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/forget_password_view.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/register_view.dart';
 
 void main() {
   runApp(const SherketyApp());
@@ -36,7 +36,7 @@ class SherketyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      home: ForgetPasswordView(),
+      home: RegisterView(),
     );
   }
 }
