@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_library/ui_lib.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_colors.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
-import 'package:sherkety_flutter_app/core/shared/widgets/default_button.dart';
-import 'package:sherkety_flutter_app/core/shared/widgets/small_button.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/phone_number.dart';
 
 class ChangeNumberButton extends StatelessWidget {
   ChangeNumberButton({super.key});

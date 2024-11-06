@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sherkety_flutter_app/core/constants/asset_colors.dart';
-import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
-import 'package:sherkety_flutter_app/core/theme/styles.dart';
+import 'package:flutter_library/constants/app_color.dart';
+import 'package:flutter_library/constants/app_spacing.dart';
+import 'package:flutter_library/constants/styles.dart';
 
 class CodeInput extends StatefulWidget {
   const CodeInput({
@@ -65,10 +65,10 @@ class _CodeInputState extends State<CodeInput> {
                       counterText: '',
                       border: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: AssetColors.borderDefaultColor,
+                          color: AppColor.borderDefaultColor,
                         ),
                         borderRadius: BorderRadius.circular(
-                          AssetSpacing.borderRadius,
+                          AppSpacing.borderRadius,
                         ),
                       ),
                     ),

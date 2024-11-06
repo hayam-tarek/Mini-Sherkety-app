@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sherkety_flutter_app/core/constants/asset_colors.dart';
-import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
-import 'package:sherkety_flutter_app/core/theme/styles.dart';
+import 'package:flutter_library/constants/app_color.dart';
+import 'package:flutter_library/constants/app_spacing.dart';
+import 'package:flutter_library/constants/styles.dart';
 
 class DangerContainer extends StatelessWidget {
   const DangerContainer({
@@ -18,22 +18,22 @@ class DangerContainer extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           width: 361,
           decoration: BoxDecoration(
-            color: AssetColors.bgDangerWeakColor,
+            color: AppColor.bgDangerWeakColor,
             borderRadius: BorderRadius.circular(
-              AssetSpacing.borderRadius,
+              AppSpacing.borderRadius,
             ),
           ),
           child: Wrap(
             children: [
               const Icon(
                 Icons.error_outline,
-                color: AssetColors.iconDangerDefaultColor,
+                color: AppColor.iconDangerDefaultColor,
               ),
               const SizedBox(width: 4),
               Text(
                 text,
                 style: Styles.paragraph300Light.copyWith(
-                  color: AssetColors.textDangerDefaultColor,
+                  color: AppColor.textDangerDefaultColor,
                 ),
               ),
             ],
