@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sherkety_flutter_app/core/constants/asset_colors.dart';
-import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
+import 'package:flutter_library/constants/app_color.dart';
+import 'package:flutter_library/constants/app_spacing.dart';
 
 class PhoneNumberTextFormField extends StatelessWidget {
   const PhoneNumberTextFormField({
@@ -27,11 +27,11 @@ class PhoneNumberTextFormField extends StatelessWidget {
           hintText: 'رقم الهاتف ...',
           border: OutlineInputBorder(
             borderSide: BorderSide(
-              color: AssetColors.borderDefaultColor,
+              color: AppColor.borderDefaultColor,
             ),
             borderRadius: BorderRadius.all(
               Radius.circular(
-                AssetSpacing.borderRadius,
+                AppSpacing.borderRadius,
               ),
             ),
           ),

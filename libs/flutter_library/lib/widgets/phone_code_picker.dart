@@ -1,7 +1,7 @@
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:flutter/widgets.dart';
-import 'package:sherkety_flutter_app/core/constants/asset_colors.dart';
-import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_library/constants/app_color.dart';
+import 'package:flutter_library/constants/app_spacing.dart';
 
 class PhoneCodePicker extends StatelessWidget {
   const PhoneCodePicker({
@@ -19,10 +19,10 @@ class PhoneCodePicker extends StatelessWidget {
       height: 60,
       decoration: BoxDecoration(
         border: Border.all(
-          color: AssetColors.borderWeakColor,
+          color: AppColor.borderWeakColor,
         ),
         borderRadius: BorderRadius.circular(
-          AssetSpacing.borderRadius,
+          AppSpacing.borderRadius,
         ),
       ),
       child: Center(

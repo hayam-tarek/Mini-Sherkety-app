@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sherkety_flutter_app/core/constants/asset_colors.dart';
-import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
+import 'package:flutter_library/constants/app_color.dart';
+import 'package:flutter_library/constants/app_spacing.dart';
 
 class SmallButton extends StatelessWidget {
   const SmallButton({
@@ -17,10 +17,10 @@ class SmallButton extends StatelessWidget {
       onPressed: onPressed,
       minWidth: 94,
       height: 28,
-      color: AssetColors.bgSuccessDefault,
+      color: AppColor.bgSuccessDefault,
       textColor: Colors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AssetSpacing.borderRadius),
+        borderRadius: BorderRadius.circular(AppSpacing.borderRadius),
       ),
       child: Text(
         text,

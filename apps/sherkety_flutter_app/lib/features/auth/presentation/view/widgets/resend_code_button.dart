@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:sherkety_flutter_app/core/shared/widgets/default_button.dart';
+import 'package:flutter_library/ui_lib.dart';
 
 class ResendCodeButton extends StatefulWidget {
   const ResendCodeButton({
