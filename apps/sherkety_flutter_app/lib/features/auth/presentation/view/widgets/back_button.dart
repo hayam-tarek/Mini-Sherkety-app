@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_colors.dart';
 
-class BackButton extends StatelessWidget {
-  const BackButton({
+class CustomBackButton extends StatelessWidget {
+  const CustomBackButton({
     super.key,
   });
 

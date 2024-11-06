@@ -14,7 +14,13 @@ class ResendCodeButton extends StatefulWidget {
 
 class _ResendCodeButtonState extends State<ResendCodeButton> {
   bool isCountingDown = false;
-  int countdown = 60;
+  late int countdown;
+  @override
+  void initState() {
+    countdown = 60;
+    startCountdown();
+    super.initState();
+  }
 
   void startCountdown() {
     setState(() {
@@ -43,7 +49,15 @@ class _ResendCodeButtonState extends State<ResendCodeButton> {
       text: isCountingDown
           ? ' إعادة الإرسال بعد $countdown'
           : 'إعادة ارسال الرمز',
-      onPressed: isCountingDown ? null : startCountdown,
+      onPressed: isCountingDown
+          ? null
+          : () {
+              startCountdown();
+              CustomToast.show(
+                context,
+                'تم ارسال رمز التفعيل',
+              );
+            },
     );
   }
 }
