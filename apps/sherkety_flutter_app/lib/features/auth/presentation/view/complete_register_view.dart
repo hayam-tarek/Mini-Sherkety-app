@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_library/ui_lib.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/complete_register_view_body.dart';
+import 'package:sherkety_flutter_app/features/home/presentation/views/home_view.dart';
 
 class CompleteRegisterView extends StatelessWidget {
   const CompleteRegisterView({super.key});
@@ -26,7 +27,16 @@ class CompleteRegisterView extends StatelessWidget {
                 ),
                 child: DefaultButton(
                   text: 'دخول',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const HomeView();
+                        },
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
