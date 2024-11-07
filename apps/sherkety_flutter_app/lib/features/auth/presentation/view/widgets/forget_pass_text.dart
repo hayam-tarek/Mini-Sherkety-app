@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
-
-import '../create_new_pass_login_view.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/forget_password_view.dart';
 
 class ForgetPassText extends StatelessWidget {
   const ForgetPassText({
@@ -17,7 +16,7 @@ class ForgetPassText extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const CreateNewPassLoginView(),
+              builder: (context) => ForgetPasswordView(),
             ),
           );
         },

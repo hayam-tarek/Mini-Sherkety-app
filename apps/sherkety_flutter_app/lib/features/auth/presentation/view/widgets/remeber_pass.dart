@@ -24,9 +24,7 @@ class RemeberPass extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => LoginView(
-                    phoneNumber: '',
-                  ),
+                  builder: (context) => LoginView(),
                 ),
               );
             },
