@@ -23,7 +23,7 @@ class NoAccountLogin extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => RegisterView(),
+                  builder: (context) => const RegisterView(),
                 ),
               );
             },

@@ -18,5 +18,10 @@ abstract class AssetColors {
   static const Color bgDangerWeakColor = Color(0xffFFE6E5);
 
   static const Color iconDangerDefaultColor = Color(0xffFF0700);
+
   static const Color textDangerDefaultColor = Color(0xffD31510);
+
+  static const Color bgHighlightSelected = Color(0xffDFEBF7);
+
+  static const Color textWeakColor = Color(0xff414346);
 }
