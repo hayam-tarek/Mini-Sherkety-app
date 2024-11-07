@@ -3,14 +3,15 @@ import 'package:flutter_library/ui_lib.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
 import 'package:sherkety_flutter_app/core/shared/widgets/base_spacing.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/verify_view.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/contacts.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/have_an_account.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/terms_of_service_privacy_policy.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/forget_pass_text.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/no_account_login.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/password_text_field.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/text_register_with.dart';
-import 'verify_view.dart';
 
-class RegisterView extends StatelessWidget {
-  RegisterView({super.key});
+class LoginView extends StatelessWidget {
+  LoginView({super.key, required String phoneNumber});
   final TextEditingController controller = TextEditingController();
 
   @override
@@ -26,12 +27,14 @@ class RegisterView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('مرحبا!', style: Styles.headline200Heavy),
-                Text('سجل الآن .. لتبدأ', style: Styles.headline200light),
+                Text(' مرحبا بعودتك!', style: Styles.headline200Heavy),
+                Text('يسعدنا رؤيتك مرة أخرى!', style: Styles.headline200light),
                 const BaseSpacing(),
                 PhoneNumber(controller: controller),
                 const BaseSpacing(),
-                const TermsOfServicePrivacyPolicy(),
+                const PasswordTextField(),
+                const BaseSpacing(),
+                const ForgetPassText(),
                 const BaseSpacing(),
                 DefaultButton(
                   text: 'دخول',
@@ -50,8 +53,8 @@ class RegisterView extends StatelessWidget {
                 const TextRegisterWith(),
                 const BaseSpacing(),
                 const Contacts(),
-                const SizedBox(height: 280),
-                const HaveAnAccount(),
+                const SizedBox(height: 290),
+                const NoAccountLogin()
               ],
             ),
           ),

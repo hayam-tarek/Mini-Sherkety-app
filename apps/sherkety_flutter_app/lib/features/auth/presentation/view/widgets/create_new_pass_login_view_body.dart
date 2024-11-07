@@ -5,8 +5,8 @@ import 'package:sherkety_flutter_app/core/shared/widgets/small_space.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/password_validation_item.dart';
 
-class CreatePassLoginViewBody extends StatelessWidget {
-  const CreatePassLoginViewBody({
+class CreateNewPassLoginViewBody extends StatelessWidget {
+  const CreateNewPassLoginViewBody({
     super.key,
     required this.passwordController,
     required this.rePasswordController,
