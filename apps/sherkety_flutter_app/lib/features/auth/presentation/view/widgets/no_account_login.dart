@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/register_view.dart';
 
 class NoAccountLogin extends StatelessWidget {
   const NoAccountLogin({
@@ -18,7 +19,14 @@ class NoAccountLogin extends StatelessWidget {
             style: Styles.paragraph100Light,
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RegisterView(),
+                ),
+              );
+            },
             child: Text(
               ' سجل الآن!',
               style: Styles.paragraph100Heavy,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
 
+import '../login_view.dart';
+
 class RemeberPass extends StatelessWidget {
   const RemeberPass({
     super.key,
@@ -19,12 +21,14 @@ class RemeberPass extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              // //  Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //       builder: (context) => LoginView(),
-              //   //  ),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginView(
+                    phoneNumber: '',
+                  ),
+                ),
+              );
             },
             child: Text(
               ' أدخل الآن!',

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
 
+import '../login_view.dart';
+
 class HaveAnAccount extends StatelessWidget {
   const HaveAnAccount({
     super.key,
@@ -18,7 +20,16 @@ class HaveAnAccount extends StatelessWidget {
             style: Styles.paragraph200Light,
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginView(
+                    phoneNumber: '',
+                  ),
+                ),
+              );
+            },
             child: Text(
               ' أدخل الآن!',
               style: Styles.paragraph100Heavy,
