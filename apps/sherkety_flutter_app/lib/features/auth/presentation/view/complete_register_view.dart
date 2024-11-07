@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_library/ui_lib.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/have_an_account.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/register_body.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/complete_register_view_body.dart';
 
-
-class RegisterView extends StatelessWidget {
-  const RegisterView({super.key});
+class CompleteRegisterView extends StatelessWidget {
+  const CompleteRegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +16,18 @@ class RegisterView extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Expanded(
-                child: RegisterBody(),
+              const Expanded(
+                child: CompleteRegisterViewBody(),
               ),
-              const Padding(
-                padding: EdgeInsets.only(
+              Padding(
+                padding: const EdgeInsets.only(
                   bottom: 32,
                   top: 16,
                 ),
-                child: HaveAnAccount(),
+                child: DefaultButton(
+                  text: 'دخول',
+                  onPressed: () {},
+                ),
               ),
             ],
           ),

@@ -36,7 +36,7 @@ class SherketyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      home: RegisterView(),
+      home: const RegisterView(),
     );
   }
 }
