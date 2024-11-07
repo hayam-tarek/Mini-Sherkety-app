@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_library/ui_lib.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
+
 import 'complete_login_view.dart';
 import 'widgets/create_pass_login_view_body.dart';
 
@@ -44,7 +45,7 @@ class _CreatePasswordViewState extends State<CreateNewPassLoginView> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CompleteLoginView(),
+                        builder: (context) => const CompleteLoginView(),
                       ),
                     );
                   },
