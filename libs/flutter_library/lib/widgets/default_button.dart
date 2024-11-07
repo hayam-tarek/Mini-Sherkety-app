@@ -8,10 +8,12 @@ class DefaultButton extends StatelessWidget {
     required this.text,
     this.onPressed,
     this.fontSize = 16,
+    this.backgroundColor = AppColor.bgAccentDefault,
   });
   final String text;
   final void Function()? onPressed;
   final double fontSize;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class DefaultButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.all(0),
         fixedSize: const Size(361, 48),
-        backgroundColor: AppColor.bgAccentDefault,
+        backgroundColor: backgroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppSpacing.borderRadius),
         ),
