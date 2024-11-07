@@ -3,6 +3,7 @@ import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/have_an_account.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/register_body.dart';
 
+
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
 
