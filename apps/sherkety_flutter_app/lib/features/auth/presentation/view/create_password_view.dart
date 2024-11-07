@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_library/ui_lib.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/complete_register_view.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/create_password_view_body.dart';
 
 class CreatePasswordView extends StatefulWidget {
@@ -39,7 +40,14 @@ class _CreatePasswordViewState extends State<CreatePasswordView> {
                 ),
                 child: DefaultButton(
                   text: 'حفظ',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CompleteRegisterView(),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
