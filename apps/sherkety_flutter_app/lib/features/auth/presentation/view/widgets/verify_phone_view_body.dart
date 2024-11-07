@@ -42,7 +42,7 @@ class VerifyViewBody extends StatelessWidget {
               'إلى $phoneNumber ',
               style: Styles.paragraph100Light,
             ),
-            ChangeNumberButton(),
+            const ChangeNumberButton(),
           ],
         ),
         const BaseSpacing(),
