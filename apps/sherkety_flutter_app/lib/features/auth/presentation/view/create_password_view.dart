@@ -22,7 +22,6 @@ class _CreatePasswordViewState extends State<CreatePasswordView> {
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: AssetSpacing.paddingHorizontal,
-            vertical: AssetSpacing.paddingVertical,
           ),
           child: Column(
             children: [

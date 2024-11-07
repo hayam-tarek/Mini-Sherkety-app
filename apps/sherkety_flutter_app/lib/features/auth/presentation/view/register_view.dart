@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_library/ui_lib.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
-import 'package:sherkety_flutter_app/core/shared/widgets/base_spacing.dart';
-import 'package:sherkety_flutter_app/core/theme/styles.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/verify_view.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/contacts.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/have_an_account.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/terms_of_service_privacy_policy.dart';
-import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/text_register_with.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/register_body.dart';
 
 class RegisterView extends StatelessWidget {
-  RegisterView({super.key});
-  final TextEditingController controller = TextEditingController();
+  const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,40 +13,20 @@ class RegisterView extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: AssetSpacing.paddingHorizontal,
-            vertical: AssetSpacing.paddingVertical,
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('مرحبا!', style: Styles.headline200Heavy),
-                Text('سجل الآن .. لتبدأ', style: Styles.headline200light),
-                const BaseSpacing(),
-                PhoneNumber(controller: controller),
-                const BaseSpacing(),
-                const TermsOfServicePrivacyPolicy(),
-                const BaseSpacing(),
-                DefaultButton(
-                  text: 'دخول',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => VerifyView(
-                          phoneNumber: controller.text,
-                        ),
-                      ),
-                    );
-                  },
+          child: Column(
+            children: [
+              Expanded(
+                child: RegisterBody(),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(
+                  bottom: 32,
+                  top: 16,
                 ),
-                const BaseSpacing(),
-                const TextRegisterWith(),
-                const BaseSpacing(),
-                const Contacts(),
-                const SizedBox(height: 280),
-                const HaveAnAccount(),
-              ],
-            ),
+                child: HaveAnAccount(),
+              ),
+            ],
           ),
         ),
       ),
