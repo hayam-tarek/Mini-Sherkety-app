@@ -15,6 +15,8 @@ class _CreatePasswordViewState extends State<CreatePasswordView> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController rePasswordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController checkPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +32,7 @@ class _CreatePasswordViewState extends State<CreatePasswordView> {
                   passwordController: passwordController,
                   rePasswordController: rePasswordController,
                   emailController: emailController,
+                  checkPasswordController: checkPasswordController,
                 ),
               ),
               Padding(
@@ -40,12 +43,14 @@ class _CreatePasswordViewState extends State<CreatePasswordView> {
                 child: DefaultButton(
                   text: 'حفظ',
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CompleteRegisterView(),
-                      ),
-                    );
+                    if (checkPasswordController.text == 'true') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CompleteRegisterView(),
+                        ),
+                      );
+                    }
                   },
                 ),
               ),
