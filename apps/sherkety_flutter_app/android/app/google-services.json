@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1034292681661",
+    "project_id": "sherkety-app-da5b5",
+    "storage_bucket": "sherkety-app-da5b5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034292681661:android:2bfd223253702879e5d0d4",
+        "android_client_info": {
+          "package_name": "com.example.sherk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzq-g_desz512vg2zOeiv6TxP8Awq-a9k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034292681661:android:171d2e830c78f062e5d0d4",
+        "android_client_info": {
+          "package_name": "com.example.sherkety_flutter_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzq-g_desz512vg2zOeiv6TxP8Awq-a9k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
