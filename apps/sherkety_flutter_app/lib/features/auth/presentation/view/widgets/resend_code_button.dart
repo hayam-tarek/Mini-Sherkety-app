@@ -15,6 +15,7 @@ class ResendCodeButton extends StatefulWidget {
 class _ResendCodeButtonState extends State<ResendCodeButton> {
   bool isCountingDown = false;
   late int countdown;
+  Timer? timer;
   @override
   void initState() {
     countdown = 60;
@@ -27,7 +28,7 @@ class _ResendCodeButtonState extends State<ResendCodeButton> {
       isCountingDown = true;
     });
 
-    Timer.periodic(const Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (countdown > 0) {
         setState(() {
           countdown--;
@@ -40,6 +41,12 @@ class _ResendCodeButtonState extends State<ResendCodeButton> {
         });
       }
     });
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
   }
 
   @override

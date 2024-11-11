@@ -2,6 +2,7 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_colors.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_fonts.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/register_view.dart';
@@ -13,7 +14,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const SherketyApp());
+  runApp(const ProviderScope(child: SherketyApp()));
 }
 
 class SherketyApp extends StatelessWidget {
