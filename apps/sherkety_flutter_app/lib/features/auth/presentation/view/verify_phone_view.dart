@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_library/ui_lib.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
@@ -8,16 +11,17 @@ class VerifyPhoneView extends StatefulWidget {
   const VerifyPhoneView({
     super.key,
     required this.phoneNumber,
+    required this.verificationId,
   });
   final String phoneNumber;
-
+  final String verificationId;
   @override
   State<VerifyPhoneView> createState() => _VerifyViewState();
 }
 
 class _VerifyViewState extends State<VerifyPhoneView> {
   final List<TextEditingController> controllers = List.generate(
-    4,
+    6,
     (index) => TextEditingController(),
   );
 
@@ -53,23 +57,35 @@ class _VerifyViewState extends State<VerifyPhoneView> {
                 ),
                 child: DefaultButton(
                   text: 'أكد الرمز',
-                  onPressed: () {
+                  onPressed: () async {
                     fullCode = getCode();
                     if (fullCode != null) {
-                      if (fullCode!.length != 4) {
+                      if (fullCode!.length != controllers.length) {
                         setState(() {
                           correctCode = false;
                         });
                       } else {
                         correctCode = true;
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return const CreatePasswordView();
-                            },
-                          ),
+                        final credential = PhoneAuthProvider.credential(
+                          verificationId: widget.verificationId,
+                          smsCode: fullCode!,
                         );
+
+                        try {
+                          await FirebaseAuth.instance
+                              .signInWithCredential(credential);
+                          log('sing in with credential');
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return const CreatePasswordView();
+                              },
+                            ),
+                          );
+                        } catch (e) {
+                          log(e.toString());
+                        }
                       }
                     }
                   },

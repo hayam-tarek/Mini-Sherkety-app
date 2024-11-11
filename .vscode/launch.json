@@ -1,0 +1,48 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "sherkety_flutter_app",
+            "cwd": "apps\\sherkety_flutter_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "sherkety_flutter_app (profile mode)",
+            "cwd": "apps\\sherkety_flutter_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "sherkety_flutter_app (release mode)",
+            "cwd": "apps\\sherkety_flutter_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "flutter_library",
+            "cwd": "libs\\flutter_library",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutter_library (profile mode)",
+            "cwd": "libs\\flutter_library",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flutter_library (release mode)",
+            "cwd": "libs\\flutter_library",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
