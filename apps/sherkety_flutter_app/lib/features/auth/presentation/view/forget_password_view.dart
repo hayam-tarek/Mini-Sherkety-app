@@ -10,7 +10,8 @@ import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/ter
 
 class ForgetPasswordView extends StatelessWidget {
   ForgetPasswordView({super.key});
-  final TextEditingController controller = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController codePickerController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,10 @@ class ForgetPasswordView extends StatelessWidget {
                     'لا تقلق! يحدث هذا أحيانًا. من فضلك، أدخل رقم جوالك المرتبط بحسابك.',
                     style: Styles.paragraph100Light),
                 const BaseSpacing(),
-                PhoneNumber(controller: controller),
+                PhoneNumber(
+                  phoneController: phoneController,
+                  codePickerController: codePickerController,
+                ),
                 const BaseSpacing(),
                 const SizedBox(height: 380),
                 const TermsOfServicePrivacyPolicy(),
@@ -47,7 +51,7 @@ class ForgetPasswordView extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => CreatePassOtpView(
-                          phoneNumber: controller.text,
+                          phoneNumber: phoneController.text,
                         ),
                       ),
                     );
