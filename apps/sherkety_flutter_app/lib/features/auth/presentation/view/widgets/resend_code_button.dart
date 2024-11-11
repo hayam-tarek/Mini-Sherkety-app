@@ -60,7 +60,7 @@ class _ResendCodeButtonState extends State<ResendCodeButton> {
           ? null
           : () {
               startCountdown();
-              CustomToast.show(
+              CustomSuccessToast.show(
                 context,
                 'تم ارسال رمز التفعيل',
               );

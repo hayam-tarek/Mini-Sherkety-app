@@ -5,8 +5,31 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthRepository {
-  Future<Either<String, String>> register(
-      {required String code, required String phone}) async {
+  Future<Either<String, bool>> signInWithCredential({
+    required String verificationId,
+    required String smsCode,
+  }) async {
+    try {
+      final credential = PhoneAuthProvider.credential(
+        verificationId: verificationId,
+        smsCode: smsCode,
+      );
+      await FirebaseAuth.instance.signInWithCredential(credential);
+      log('sing in with credential');
+      return const Right(true);
+    } on FirebaseAuthException catch (e) {
+      log('Error: ${e.message}');
+      return Left(e.message ?? 'An unknown error occurred');
+    } catch (e) {
+      log(e.toString());
+      return const Left('An unexpected error occurred');
+    }
+  }
+
+  Future<Either<String, String>> register({
+    required String code,
+    required String phone,
+  }) async {
     final Completer<Either<String, String>> completer = Completer();
     try {
       final FirebaseAuth auth = FirebaseAuth.instance;

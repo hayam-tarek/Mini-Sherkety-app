@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_library/ui_lib.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sherkety_flutter_app/core/helper/phone_number.dart';
 import 'package:sherkety_flutter_app/core/shared/widgets/base_spacing.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/verify_phone_view.dart';
@@ -16,7 +17,8 @@ class RegisterBody extends ConsumerWidget {
     super.key,
   });
 
-  final TextEditingController controller = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController codePickerController = TextEditingController();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,7 +30,7 @@ class RegisterBody extends ConsumerWidget {
           context,
           MaterialPageRoute(
             builder: (context) => VerifyPhoneView(
-              phoneNumber: '+201116289719',
+              phoneNumber: codePickerController.text + phoneController.text,
               verificationId: next.verificationId,
             ),
           ),
@@ -47,16 +49,25 @@ class RegisterBody extends ConsumerWidget {
           Text('مرحبا!', style: Styles.headline200Heavy),
           Text('سجل الآن .. لتبدأ', style: Styles.headline200light),
           const BaseSpacing(),
-          PhoneNumber(controller: controller),
+          PhoneNumber(
+            phoneController: phoneController,
+            codePickerController: codePickerController,
+          ),
           const BaseSpacing(),
           // const TermsOfServicePrivacyPolicy(),
           const BaseSpacing(),
           DefaultButton(
-            text: registerState is RegisterLoading ? 'جاري التسجيل' : 'دخول',
+            text: registerState is RegisterLoading ? 'جار التسجيل...' : 'دخول',
             onPressed: () async {
-              ref
-                  .read(registerProvider.notifier)
-                  .register(code: '+20', phone: '1116289719');
+              if (PhoneNumberHelper.validatePhoneNumber(
+                      phoneNumber: phoneController.text,
+                      selectedCode: codePickerController.text) ==
+                  null) {
+                ref.read(registerProvider.notifier).register(
+                      code: codePickerController.text,
+                      phone: phoneController.text,
+                    );
+              }
             },
           ),
           const BaseSpacing(),
