@@ -13,3 +13,12 @@ class RegisterFailure extends RegisterState {
   final String error;
   RegisterFailure(this.error);
 }
+
+class LinkEmailPasswordLoading extends RegisterState {}
+
+class LinkEmailPasswordSuccess extends RegisterState {}
+
+class LinkEmailPasswordFailure extends RegisterState {
+  final String error;
+  LinkEmailPasswordFailure(this.error);
+}

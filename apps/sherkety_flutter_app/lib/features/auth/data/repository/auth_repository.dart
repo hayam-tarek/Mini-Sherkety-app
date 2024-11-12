@@ -5,6 +5,32 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthRepository {
+  Future<Either<String, bool>> linkEmailPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final FirebaseAuth auth = FirebaseAuth.instance;
+      final User? user = auth.currentUser;
+      if (user != null) {
+        final credential = EmailAuthProvider.credential(
+          email: email,
+          password: password,
+        );
+        await user.linkWithCredential(credential);
+        return const Right(true);
+      } else {
+        return const Left('User is null');
+      }
+    } on FirebaseAuthException catch (e) {
+      log('Error: ${e.message}');
+      return Left(e.message ?? 'An unknown error occurred');
+    } catch (e) {
+      log(e.toString());
+      return const Left('An unexpected error occurred');
+    }
+  }
+
   Future<Either<String, bool>> signInWithCredential({
     required String verificationId,
     required String smsCode,

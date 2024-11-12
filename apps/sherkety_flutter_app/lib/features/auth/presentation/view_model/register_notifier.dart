@@ -21,4 +21,24 @@ class RegisterNotifier extends StateNotifier<RegisterState> {
       log('Error: $e');
     }
   }
+
+  Future<void> linkEmailPassword({
+    required String email,
+    required String password,
+  }) async {
+    state = LinkEmailPasswordLoading();
+    try {
+      var result = await authRepository.linkEmailPassword(
+        email: email,
+        password: password,
+      );
+      result.fold(
+        (failure) => state = LinkEmailPasswordFailure(failure),
+        (success) => state = LinkEmailPasswordSuccess(),
+      );
+    } catch (e) {
+      state = LinkEmailPasswordFailure('An unexpected error occurred');
+      log('Error: $e');
+    }
+  }
 }
