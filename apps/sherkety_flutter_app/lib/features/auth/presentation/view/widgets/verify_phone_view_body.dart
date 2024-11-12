@@ -5,6 +5,35 @@ import 'package:sherkety_flutter_app/core/shared/widgets/small_space.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/change_number_button.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/resend_code_button.dart';
+import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
+import 'package:widgetbook/widgetbook.dart'; // Import Widgetbook for knobs
+
+@widgetbook.UseCase(name: 'verify Page', type: VerifyViewBody)
+Widget VerifyViewBodyUseCase(BuildContext context) {
+  // Define knobs for dynamic control in Widgetbook
+  final String phoneNumber = context.knobs.string(
+    label: 'Phone Number',
+    initialValue: '1234567890', // Default phone number for testing
+  );
+
+  final bool correctCode = context.knobs.boolean(
+    label: 'Correct Code',
+    initialValue: true, // Default correct code status for testing
+  );
+
+  // Initialize a list of 4 TextEditingControllers for code input
+  final List<TextEditingController> controllers = List.generate(
+    4,
+    (index) => TextEditingController(),
+  );
+
+  // Return the VerifyViewBody widget with knobs applied
+  return VerifyViewBody(
+    phoneNumber: phoneNumber,
+    controllers: controllers,
+    correctCode: correctCode,
+  );
+}
 
 class VerifyViewBody extends StatelessWidget {
   const VerifyViewBody({
