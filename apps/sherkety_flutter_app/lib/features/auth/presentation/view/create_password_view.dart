@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_library/ui_lib.dart';
-import 'package:flutter_library/widgets/custom_error_toast.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
+import 'package:sherkety_flutter_app/core/helper/email_helper.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/complete_register_view.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/create_password_view_body.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view_model/regiser_state.dart';
@@ -67,7 +67,9 @@ class _CreatePasswordViewState extends State<CreatePasswordView> {
                           ? 'الرجاء الانتظار'
                           : 'حفظ',
                       onPressed: () {
-                        if (checkPasswordController.text == 'true') {
+                        if (checkPasswordController.text == 'true' &&
+                            EmailHelper.validateEmail(emailController.text) ==
+                                null) {
                           ref.read(registerProvider.notifier).linkEmailPassword(
                                 email: emailController.text,
                                 password: passwordController.text,

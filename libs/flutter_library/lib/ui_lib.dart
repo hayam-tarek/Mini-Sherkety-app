@@ -1,4 +1,5 @@
 export 'widgets/code_input.dart';
+export 'widgets/custom_error_toast.dart';
 export 'widgets/custom_success_toast.dart';
 export 'widgets/custom_text_input.dart';
 export 'widgets/danger_container.dart';
