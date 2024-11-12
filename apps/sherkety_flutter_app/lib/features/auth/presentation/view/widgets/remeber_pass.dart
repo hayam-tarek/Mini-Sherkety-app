@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
+import 'package:widgetbook/widgetbook.dart';
+import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 import '../login_view.dart';
 
+@widgetbook.UseCase(name: 'remember', type: RemeberPass)
+Widget remeberPass(BuildContext context) => RemeberPass(
+      label: context.knobs.string(
+        label: 'Title',
+        initialValue: 'تذكرت كلمة السر؟',
+      ),
+    );
+
 class RemeberPass extends StatelessWidget {
+  final String label;
+
   const RemeberPass({
     super.key,
+    this.label = 'تذكرت كلمة السر؟',
   });
 
   @override

@@ -1,9 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
+import 'package:widgetbook/widgetbook.dart';
+import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
+
+@widgetbook.UseCase(
+    name: 'terms of service privacy policy', type: TermsOfServicePrivacyPolicy)
+Widget termsOfServicePrivacyPolicy(BuildContext context) =>
+    TermsOfServicePrivacyPolicy(
+      label: context.knobs.string(
+        label: 'Initial Label Text',
+        initialValue: 'لقد قراءت وفهمت',
+      ),
+      termsText: context.knobs.string(
+        label: 'Terms Text',
+        initialValue: 'شروط الخدمة',
+      ),
+      andText: context.knobs.string(
+        label: 'And Text',
+        initialValue: 'و',
+      ),
+      privacyPolicyText: context.knobs.string(
+        label: 'Privacy Policy Text',
+        initialValue: 'سياسة الخصوصية',
+      ),
+      agreementText: context.knobs.string(
+        label: 'Agreement Text',
+        initialValue: 'وأوافق عليها',
+      ),
+    );
 
 class TermsOfServicePrivacyPolicy extends StatelessWidget {
+  final String label;
+  final String termsText;
+  final String andText;
+  final String privacyPolicyText;
+  final String agreementText;
+
   const TermsOfServicePrivacyPolicy({
     super.key,
+    this.label = 'لقد قراءت وفهمت',
+    this.termsText = 'شروط الخدمة',
+    this.andText = 'و',
+    this.privacyPolicyText = 'سياسة الخصوصية',
+    this.agreementText = 'وأوافق عليها',
   });
 
   @override
@@ -14,29 +53,29 @@ class TermsOfServicePrivacyPolicy extends StatelessWidget {
         alignment: WrapAlignment.center,
         children: [
           Text(
-            'لقد قراءت وفهمت',
+            label,
             style: Styles.paragraph200Light,
           ),
           InkWell(
             onTap: () {},
             child: Text(
-              ' شروط الخدمة ',
+              termsText,
               style: Styles.paragraph100Heavy,
             ),
           ),
           Text(
-            'و',
+            andText,
             style: Styles.paragraph200Light,
           ),
           InkWell(
             onTap: () {},
             child: Text(
-              ' سياسة الخصوصية ',
+              privacyPolicyText,
               style: Styles.paragraph100Heavy,
             ),
           ),
           Text(
-            'وأوافق عليها',
+            agreementText,
             style: Styles.paragraph200Light,
           ),
         ],
