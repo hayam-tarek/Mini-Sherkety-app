@@ -1,8 +1,14 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_library/ui_lib.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
+import 'package:sherkety_flutter_app/core/helper/email_helper.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/complete_register_view.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/create_password_view_body.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view_model/regiser_state.dart';
+import 'package:sherkety_flutter_app/features/auth/presentation/view_model/register_provider.dart';
 
 class CreatePasswordView extends StatefulWidget {
   const CreatePasswordView({super.key});
@@ -15,43 +21,68 @@ class _CreatePasswordViewState extends State<CreatePasswordView> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController rePasswordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController checkPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: AssetSpacing.paddingHorizontal,
-          ),
-          child: Column(
-            children: [
-              Expanded(
-                child: CreatePasswordViewBody(
-                  passwordController: passwordController,
-                  rePasswordController: rePasswordController,
-                  emailController: emailController,
+      body: Consumer(
+        builder: (context, WidgetRef ref, child) {
+          RegisterState registerState = ref.watch(registerProvider);
+          log(registerState.toString());
+          ref.listen<RegisterState>(registerProvider, (previous, next) {
+            if (registerState is LinkEmailPasswordSuccess) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CompleteRegisterView(),
                 ),
+              );
+            } else if (registerState is LinkEmailPasswordFailure) {
+              CustomErrorToast.show(context, 'حدث خطأ ما');
+            }
+          });
+          return SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: AssetSpacing.paddingHorizontal,
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  bottom: 32,
-                  top: 16,
-                ),
-                child: DefaultButton(
-                  text: 'حفظ',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CompleteRegisterView(),
-                      ),
-                    );
-                  },
-                ),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: CreatePasswordViewBody(
+                      passwordController: passwordController,
+                      rePasswordController: rePasswordController,
+                      emailController: emailController,
+                      checkPasswordController: checkPasswordController,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      bottom: 32,
+                      top: 16,
+                    ),
+                    child: DefaultButton(
+                      text: registerState is LinkEmailPasswordLoading
+                          ? 'الرجاء الانتظار'
+                          : 'حفظ',
+                      onPressed: () {
+                        if (checkPasswordController.text == 'true' &&
+                            EmailHelper.validateEmail(emailController.text) ==
+                                null) {
+                          ref.read(registerProvider.notifier).linkEmailPassword(
+                                email: emailController.text,
+                                password: passwordController.text,
+                              );
+                        }
+                      },
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }

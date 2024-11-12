@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_library/constants/app_color.dart';
 
-class CustomToast {
+class CustomSuccessToast {
   static void show(BuildContext context, String message,
       {Duration duration = const Duration(seconds: 5)}) {
     final overlay = Overlay.of(context);
