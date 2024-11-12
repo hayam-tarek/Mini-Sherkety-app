@@ -7,9 +7,11 @@ import 'package:flutter_library/widgets/phone_code_picker.dart';
 class PhoneNumber extends StatefulWidget {
   const PhoneNumber({
     super.key,
-    required this.controller,
+    required this.phoneController,
+    required this.codePickerController,
   });
-  final TextEditingController controller;
+  final TextEditingController phoneController;
+  final TextEditingController codePickerController;
 
   @override
   State<PhoneNumber> createState() => _PhoneNumberState();
@@ -19,6 +21,11 @@ class _PhoneNumberState extends State<PhoneNumber> {
   String selectedCode = '+20';
 
   String? validationMessage;
+  @override
+  void initState() {
+    widget.codePickerController.text = selectedCode;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +35,13 @@ class _PhoneNumberState extends State<PhoneNumber> {
           children: [
             Expanded(
               child: CustomTextInput(
-                controller: widget.controller,
+                controller: widget.phoneController,
                 hintText: 'رقم الهاتف ...',
                 keyboardType: TextInputType.phone,
                 onChanged: (value) {
                   setState(() {
                     validationMessage = PhoneNumberHelper.validatePhoneNumber(
-                      phoneNumber: widget.controller.text,
+                      phoneNumber: widget.phoneController.text,
                       selectedCode: selectedCode,
                     );
                   });
@@ -47,6 +54,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
               onChanged: (value) {
                 setState(() {
                   selectedCode = value.dialCode!;
+                  widget.codePickerController.text = value.dialCode!;
                 });
               },
             ),
