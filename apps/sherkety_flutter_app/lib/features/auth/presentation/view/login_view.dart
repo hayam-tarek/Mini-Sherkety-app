@@ -17,6 +17,7 @@ Widget loginUseCase(BuildContext context) => LoginView();
 class LoginView extends StatelessWidget {
   LoginView({super.key});
   final TextEditingController controller = TextEditingController();
+  final TextEditingController codePickerController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,10 @@ class LoginView extends StatelessWidget {
                 Text(' مرحبا بعودتك!', style: Styles.headline200Heavy),
                 Text('يسعدنا رؤيتك مرة أخرى!', style: Styles.headline200light),
                 const BaseSpacing(),
-                PhoneNumber(controller: controller),
+                PhoneNumber(
+                  phoneController: controller,
+                  codePickerController: codePickerController,
+                ),
                 const BaseSpacing(),
                 const PasswordTextField(),
                 const BaseSpacing(),

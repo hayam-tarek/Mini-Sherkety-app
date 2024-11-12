@@ -60,7 +60,7 @@ class VerifyViewBody extends StatelessWidget {
         ),
         const SmallSpace(),
         Text(
-          'أرسلنا رمزا مكونا من 4 أرقام إلي',
+          'أرسلنا رمزا مكونا من {${controllers.length}} أرقام إلي',
           style: Styles.paragraph100Light,
         ),
         const SmallSpace(),
