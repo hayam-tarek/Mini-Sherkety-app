@@ -9,6 +9,10 @@ import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/no_
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/password_text_field.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/text_register_with.dart';
 import 'package:sherkety_flutter_app/features/home/presentation/views/home_view.dart';
+import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
+
+@widgetbook.UseCase(name: 'Login Page', type: LoginView)
+Widget loginUseCase(BuildContext context) => LoginView();
 
 class LoginView extends StatelessWidget {
   LoginView({super.key});

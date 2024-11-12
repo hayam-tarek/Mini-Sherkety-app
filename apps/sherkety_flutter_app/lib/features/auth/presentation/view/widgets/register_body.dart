@@ -1,5 +1,5 @@
-import 'dart:developer';
 
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_library/ui_lib.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,8 +17,10 @@ class RegisterBody extends ConsumerWidget {
     super.key,
   });
 
+
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController codePickerController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -57,6 +59,7 @@ class RegisterBody extends ConsumerWidget {
           // const TermsOfServicePrivacyPolicy(),
           const BaseSpacing(),
           DefaultButton(
+
             text: registerState is RegisterLoading ? 'جار التسجيل...' : 'دخول',
             onPressed: () async {
               if (PhoneNumberHelper.validatePhoneNumber(
@@ -70,6 +73,7 @@ class RegisterBody extends ConsumerWidget {
               } else {
                 CustomErrorToast.show(context, 'حدث خطأ ما');
               }
+
             },
           ),
           const BaseSpacing(),
