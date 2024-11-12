@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_library/ui_lib.dart';
+import 'package:flutter_library/widgets/custom_error_toast.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sherkety_flutter_app/core/helper/phone_number.dart';
 import 'package:sherkety_flutter_app/core/shared/widgets/base_spacing.dart';
@@ -67,6 +68,8 @@ class RegisterBody extends ConsumerWidget {
                       code: codePickerController.text,
                       phone: phoneController.text,
                     );
+              } else {
+                CustomErrorToast.show(context, 'حدث خطأ ما');
               }
             },
           ),
