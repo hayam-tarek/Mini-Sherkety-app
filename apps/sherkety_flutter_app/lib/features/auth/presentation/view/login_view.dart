@@ -8,10 +8,12 @@ import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/for
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/no_account_login.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/password_text_field.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/text_register_with.dart';
+import 'package:sherkety_flutter_app/features/home/presentation/views/home_view.dart';
 
 class LoginView extends StatelessWidget {
   LoginView({super.key});
   final TextEditingController controller = TextEditingController();
+  final TextEditingController codePickerController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,10 @@ class LoginView extends StatelessWidget {
                 Text(' مرحبا بعودتك!', style: Styles.headline200Heavy),
                 Text('يسعدنا رؤيتك مرة أخرى!', style: Styles.headline200light),
                 const BaseSpacing(),
-                PhoneNumber(controller: controller),
+                PhoneNumber(
+                  phoneController: controller,
+                  codePickerController: codePickerController,
+                ),
                 const BaseSpacing(),
                 const PasswordTextField(),
                 const BaseSpacing(),
@@ -37,7 +42,25 @@ class LoginView extends StatelessWidget {
                 const BaseSpacing(),
                 DefaultButton(
                   text: 'دخول',
-                  onPressed: () {},
+                  onPressed: () async {
+                    // try {
+                    //   final credential = PhoneAuthProvider.credential(
+                    //     verificationId: _verificationId,
+                    //     smsCode: '123456',
+                    //   );
+                    //   await FirebaseAuth.instance
+                    //       .signInWithCredential(credential);
+                    //   log('Successfully signed in!');
+                    // } catch (e) {
+                    //   log('Failed to sign in: $e');
+                    // }
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomeView(),
+                      ),
+                    );
+                  },
                 ),
                 const BaseSpacing(),
                 const TextRegisterWith(),
