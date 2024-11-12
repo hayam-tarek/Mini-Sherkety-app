@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_library/ui_lib.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_colors.dart';
+import 'package:sherkety_flutter_app/core/helper/email_helper.dart';
 import 'package:sherkety_flutter_app/core/shared/widgets/base_spacing.dart';
 import 'package:sherkety_flutter_app/core/shared/widgets/small_space.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
@@ -32,6 +33,7 @@ class _CreatePasswordViewBodyState extends State<CreatePasswordViewBody> {
   bool passwordHaveLowerCase = false;
   bool passwordHaveSpecialCharacter = false;
   bool passwordHaveNumber = false;
+  String? validationMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -149,7 +151,17 @@ class _CreatePasswordViewBodyState extends State<CreatePasswordViewBody> {
             controller: widget.emailController,
             hintText: 'البريد الإلكتروني',
             keyboardType: TextInputType.emailAddress,
+            onChanged: (value) {
+              setState(() {
+                validationMessage = EmailHelper.validateEmail(value);
+              });
+            },
           ),
+          const BaseSpacing(),
+          if (validationMessage != null)
+            DangerContainer(
+              text: validationMessage!,
+            ),
         ],
       ),
     );

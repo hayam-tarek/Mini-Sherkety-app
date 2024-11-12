@@ -19,7 +19,7 @@ class CustomErrorToast {
                 horizontal: 16.0,
               ),
               decoration: BoxDecoration(
-                color: AppColor.bgDangerWeakColor,
+                color: AppColor.iconDangerDefaultColor,
                 borderRadius: BorderRadius.circular(24),
               ),
               child: Row(
