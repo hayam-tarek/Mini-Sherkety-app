@@ -4,7 +4,9 @@ import 'package:sherkety_flutter_app/core/constants/asset_colors.dart';
 import 'package:sherkety_flutter_app/core/constants/asset_spacing.dart';
 
 Future<dynamic> changeNumberView(BuildContext context) {
-  final TextEditingController controller = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController codePickerController = TextEditingController();
+
   return showDialog(
     barrierColor: AssetColors.brandDefault.withOpacity(.4),
     context: context,
@@ -14,7 +16,11 @@ Future<dynamic> changeNumberView(BuildContext context) {
         title: const Center(
           child: Text('تغيير رقم هاتفك'),
         ),
-        content: IntrinsicHeight(child: PhoneNumber(controller: controller)),
+        content: IntrinsicHeight(
+            child: PhoneNumber(
+          phoneController: phoneController,
+          codePickerController: codePickerController,
+        )),
         actions: [
           Row(
             children: [
@@ -23,7 +29,7 @@ Future<dynamic> changeNumberView(BuildContext context) {
                   text: 'تغيير رقم الهاتف',
                   onPressed: () {
                     Navigator.pop(context);
-                    CustomToast.show(
+                    CustomSuccessToast.show(
                       context,
                       'تم تغيير الرقم وإرسال رمز تفعيل جديد',
                     );
