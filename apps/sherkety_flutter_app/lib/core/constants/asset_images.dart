@@ -6,4 +6,9 @@ abstract class AssetImages {
   static const String logo = 'assets/images/Sherkety logo ar combined.png';
   static const String menu = 'assets/images/Menu.png';
   static const String chatDots = 'assets/images/ChatDots.png';
+  static const String home = 'assets/images/home.png';
+
+  static const String settings = 'assets/images/settings.png';
+  static const String mail = 'assets/images/mail.png';
+  static const String todo = 'assets/images/todo.png';
 }
