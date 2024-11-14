@@ -122,7 +122,7 @@ final directories = <_i1.WidgetbookNode>[
                         name: 'VerifyViewBody',
                         useCase: _i1.WidgetbookUseCase(
                           name: 'verify Page',
-                          builder: _i11.VerifyViewBodyUseCase,
+                          builder: _i11.verifyViewBodyUseCase,
                         ),
                       ),
                     ],
