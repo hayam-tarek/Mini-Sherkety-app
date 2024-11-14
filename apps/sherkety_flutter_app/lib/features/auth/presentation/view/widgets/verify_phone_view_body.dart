@@ -5,11 +5,11 @@ import 'package:sherkety_flutter_app/core/shared/widgets/small_space.dart';
 import 'package:sherkety_flutter_app/core/theme/styles.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/change_number_button.dart';
 import 'package:sherkety_flutter_app/features/auth/presentation/view/widgets/resend_code_button.dart';
-import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 import 'package:widgetbook/widgetbook.dart'; // Import Widgetbook for knobs
+import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(name: 'verify Page', type: VerifyViewBody)
-Widget VerifyViewBodyUseCase(BuildContext context) {
+Widget verifyViewBodyUseCase(BuildContext context) {
   // Define knobs for dynamic control in Widgetbook
   final String phoneNumber = context.knobs.string(
     label: 'Phone Number',
@@ -22,7 +22,7 @@ Widget VerifyViewBodyUseCase(BuildContext context) {
   );
 
   // Initialize a list of 4 TextEditingControllers for code input
-  final List<TextEditingController> controllers = List.generate(
+  final List<TextEditingController> codeInputControllers = List.generate(
     4,
     (index) => TextEditingController(),
   );
@@ -30,7 +30,7 @@ Widget VerifyViewBodyUseCase(BuildContext context) {
   // Return the VerifyViewBody widget with knobs applied
   return VerifyViewBody(
     phoneNumber: phoneNumber,
-    controllers: controllers,
+    codeInputControllers: codeInputControllers,
     correctCode: correctCode,
   );
 }
@@ -39,12 +39,12 @@ class VerifyViewBody extends StatelessWidget {
   const VerifyViewBody({
     super.key,
     required this.phoneNumber,
-    required this.controllers,
+    required this.codeInputControllers,
     required this.correctCode,
   });
 
   final String phoneNumber;
-  final List<TextEditingController> controllers;
+  final List<TextEditingController> codeInputControllers;
   final bool correctCode;
 
   @override
@@ -60,7 +60,7 @@ class VerifyViewBody extends StatelessWidget {
         ),
         const SmallSpace(),
         Text(
-          'أرسلنا رمزا مكونا من {${controllers.length}} أرقام إلي',
+          'أرسلنا رمزا مكونا من {${codeInputControllers.length}} أرقام إلي',
           style: Styles.paragraph100Light,
         ),
         const SmallSpace(),
@@ -76,7 +76,7 @@ class VerifyViewBody extends StatelessWidget {
         ),
         const BaseSpacing(),
         CodeInput(
-          controllers: controllers,
+          controllers: codeInputControllers,
         ),
         const SmallSpace(),
         if (!correctCode)

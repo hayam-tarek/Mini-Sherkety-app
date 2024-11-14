@@ -19,7 +19,6 @@ class CreatePasswordView extends StatefulWidget {
 
 class _CreatePasswordViewState extends State<CreatePasswordView> {
   TextEditingController passwordController = TextEditingController();
-  TextEditingController rePasswordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController checkPasswordController = TextEditingController();
 
@@ -52,7 +51,6 @@ class _CreatePasswordViewState extends State<CreatePasswordView> {
                   Expanded(
                     child: CreatePasswordViewBody(
                       passwordController: passwordController,
-                      rePasswordController: rePasswordController,
                       emailController: emailController,
                       checkPasswordController: checkPasswordController,
                     ),
