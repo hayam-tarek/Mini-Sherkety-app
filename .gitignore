@@ -40,3 +40,7 @@ Thumbs.db
 
 .nx/cache
 .nx/workspace-data
+
+# Ignore the specific file
+apps/sherkety_flutter_app/lib/firebase_options.dart
+apps/sherkety_flutter_app/android/app/google-services.json
