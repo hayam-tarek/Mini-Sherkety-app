@@ -146,7 +146,7 @@ final directories = <_i1.WidgetbookNode>[
                     name: 'HomeView',
                     useCase: _i1.WidgetbookUseCase(
                       name: 'home Page',
-                      builder: _i12.homeViewuseCase,
+                      builder: _i12.homeViewUseCase,
                     ),
                   ),
                   _i1.WidgetbookFolder(
